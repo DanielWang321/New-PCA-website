@@ -2,6 +2,20 @@ const loginForm = document.querySelector("[data-login-form]");
 const loginStatus = document.querySelector("[data-login-status]");
 const autoRevealKey = "pcaAutoRevealMain";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const revealSelectors = [
+	"#main > .post",
+	"#main > .posts > article",
+	"#main > .pca-band",
+	".pca-card",
+	".pca-event",
+	".pca-member",
+	".pca-partner",
+	".pca-placeholder",
+	".image.main",
+	".image.fit",
+	"ul.actions",
+	"#footer > section",
+].join(",");
 
 const revealMainContent = () => {
 	const main = document.querySelector("#main");
@@ -19,6 +33,79 @@ const revealMainContent = () => {
 		behavior: prefersReducedMotion.matches ? "auto" : "smooth",
 	});
 };
+
+const setupScrollReveals = () => {
+	const revealElements = Array.from(document.querySelectorAll(revealSelectors));
+
+	revealElements.forEach((element, index) => {
+		element.classList.add("pca-scroll-reveal");
+		element.style.setProperty("--pca-reveal-delay", `${Math.min(index % 4, 3) * 55}ms`);
+	});
+
+	if (prefersReducedMotion.matches || !("IntersectionObserver" in window)) {
+		if (prefersReducedMotion.matches) {
+			revealElements.forEach((element) => element.classList.add("is-visible"));
+			return;
+		}
+
+		let ticking = false;
+
+		const revealVisibleElements = () => {
+			ticking = false;
+			const revealLine = window.innerHeight * 0.88;
+
+			revealElements.forEach((element) => {
+				if (element.classList.contains("is-visible")) {
+					return;
+				}
+
+				if (element.getBoundingClientRect().top < revealLine) {
+					element.classList.add("is-visible");
+				}
+			});
+
+			if (revealElements.every((element) => element.classList.contains("is-visible"))) {
+				window.removeEventListener("scroll", queueRevealCheck);
+				window.removeEventListener("resize", queueRevealCheck);
+			}
+		};
+
+		const queueRevealCheck = () => {
+			if (ticking) {
+				return;
+			}
+
+			ticking = true;
+			window.requestAnimationFrame(revealVisibleElements);
+		};
+
+		window.addEventListener("scroll", queueRevealCheck, { passive: true });
+		window.addEventListener("resize", queueRevealCheck);
+		queueRevealCheck();
+		return;
+	}
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) {
+					return;
+				}
+
+				entry.target.classList.add("is-visible");
+				observer.unobserve(entry.target);
+			});
+		},
+		{
+			rootMargin: "0px 0px -12% 0px",
+			threshold: 0.14,
+		}
+	);
+
+	revealElements.forEach((element) => observer.observe(element));
+};
+
+setupScrollReveals();
 
 window.addEventListener("pageshow", () => {
 	document.body.classList.remove("pca-page-leaving");
