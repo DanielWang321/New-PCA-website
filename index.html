@@ -1,0 +1,702 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>PCA Youth Center | Pittsburgh</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="PCA Youth Center is a Pittsburgh Chinese American youth nonprofit inspiring leadership, culture, and community service." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			:root {
+				--pca-red: #d71920;
+				--pca-red-dark: #6f0b10;
+				--pca-red-deep: #3b0507;
+				--pca-red-mid: #9f1219;
+				--pca-gold: #f2b24d;
+				--pca-paper: #fff8f6;
+				--pca-ink: #231719;
+				--pca-muted: #6e6062;
+				--pca-line: #ead9d4;
+			}
+
+			body {
+				background-color: var(--pca-red-dark);
+			}
+
+			html,
+			body {
+				overflow-x: hidden;
+			}
+
+			body.is-preload #wrapper.fade-in:before {
+				display: none !important;
+			}
+
+			body.is-preload #intro {
+				opacity: 1 !important;
+				-moz-transform: none !important;
+				-webkit-transform: none !important;
+				-ms-transform: none !important;
+				transform: none !important;
+				-moz-filter: none !important;
+				-webkit-filter: none !important;
+				-ms-filter: none !important;
+				filter: none !important;
+			}
+
+			#wrapper > .bg {
+				background-image:
+					linear-gradient(135deg, rgba(84, 7, 11, 0.66), rgba(215, 25, 32, 0.44)),
+					url("used website images/homepage/garden-cleanup.jpg");
+				background-position: center;
+				background-size: cover;
+			}
+
+			#intro h1 {
+				letter-spacing: 0.02em;
+				text-shadow: 0 0.35rem 1.4rem rgba(25, 0, 2, 0.5);
+			}
+
+			#intro p {
+				width: min(100%, 42rem);
+				font-size: 1.15rem;
+				font-style: normal;
+				font-weight: 300;
+				line-height: 1.7;
+				text-shadow: 0 0.18rem 0.9rem rgba(25, 0, 2, 0.62);
+			}
+
+			#intro .pca-intro-logo {
+				width: 112px;
+				height: 112px;
+				margin: 0 auto 2rem;
+				border-radius: 18px;
+				box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.28);
+				object-fit: cover;
+			}
+
+			#header .logo {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.85rem;
+				padding: 0.55rem 1.15rem;
+				background: rgba(255, 248, 246, 0.96);
+				border-color: rgba(255, 255, 255, 0.66);
+				border-radius: 16px;
+				box-shadow: 0 1rem 2.4rem rgba(34, 2, 4, 0.24);
+				color: var(--pca-red-mid) !important;
+				text-shadow: none;
+			}
+
+			#header .logo img {
+				width: 42px;
+				height: 42px;
+				border-radius: 12px;
+				object-fit: cover;
+			}
+
+			#nav {
+				background: rgba(255, 248, 246, 0.98);
+				border-radius: 18px;
+				margin-bottom: 1rem;
+				color: var(--pca-ink);
+				box-shadow: 0 1rem 2.6rem rgba(59, 5, 7, 0.12);
+				overflow: hidden;
+			}
+
+			#nav a,
+			#nav ul.links li a,
+			#nav ul.icons li a,
+			#nav ul.icons li a:before {
+				color: var(--pca-red-deep) !important;
+			}
+
+			#nav ul.links li a:hover {
+				background: rgba(215, 25, 32, 0.08);
+				color: var(--pca-red) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--pca-red);
+			}
+
+			#nav ul.links li.active a {
+				color: #ffffff !important;
+			}
+
+			#nav ul.links li.active a:hover {
+				background: var(--pca-red);
+				color: #ffffff !important;
+			}
+
+			#nav ul.icons li a:hover,
+			#nav ul.icons li a.icon:hover:before {
+				color: var(--pca-red) !important;
+			}
+
+			#nav a:hover,
+			#footer a:hover {
+				color: var(--pca-red) !important;
+			}
+
+			#main {
+				background: transparent;
+				border-radius: 22px;
+				margin-top: 1rem;
+			}
+
+			#main > * {
+				margin-top: 1rem;
+				overflow: hidden;
+				border-top: 0;
+				border-radius: 20px;
+				box-shadow: 0 1.1rem 2.75rem rgba(59, 5, 7, 0.11);
+			}
+
+			#main > *:not(.pca-band) {
+				background: var(--pca-paper);
+			}
+
+			#main > *:first-child {
+				margin-top: 0;
+			}
+
+			#main h1,
+			#main h2,
+			#main h3 {
+				color: var(--pca-ink);
+			}
+
+			#main p {
+				color: var(--pca-muted);
+			}
+
+			#main > .post.featured {
+				padding-top: 5rem;
+			}
+
+			#main > .post header.major > .date {
+				display: inline-block;
+				width: auto;
+				max-width: min(100%, 34rem);
+				margin: 0 auto 1.75rem;
+				padding-bottom: 0.45rem;
+				border-bottom: 2px solid rgba(215, 25, 32, 0.28);
+				color: var(--pca-red);
+				font-weight: 700;
+				line-height: 1.35;
+				white-space: normal;
+			}
+
+			#main > .post header.major > .date:before,
+			#main > .post header.major > .date:after {
+				display: none !important;
+			}
+
+			.image.main,
+			.image.fit {
+				border-radius: 18px;
+				overflow: hidden;
+				background: transparent;
+			}
+
+			.image.main img,
+			.image.fit img {
+				border-radius: 0;
+				object-fit: cover;
+			}
+
+			.image.main img {
+				max-height: 560px;
+			}
+
+			.image.fit img {
+				aspect-ratio: 4 / 3;
+				width: 100%;
+				height: 100%;
+			}
+
+			.button,
+			input[type="submit"] {
+				border-radius: 999px;
+				border-color: var(--pca-red) !important;
+				box-shadow: inset 0 0 0 2px var(--pca-red);
+				color: var(--pca-red) !important;
+			}
+
+			.button:hover,
+			input[type="submit"]:hover {
+				background: rgba(215, 25, 32, 0.08);
+				box-shadow: inset 0 0 0 2px var(--pca-red);
+			}
+
+			.button.primary {
+				background: var(--pca-red);
+				box-shadow: none;
+				color: #ffffff !important;
+			}
+
+			.button.primary:hover {
+				background: #b9151b;
+			}
+
+			.pca-stats {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 1px;
+				margin: 3rem 0 0;
+				overflow: hidden;
+				border-radius: 18px;
+				background: rgba(59, 5, 7, 0.14);
+				box-shadow: 0 1rem 2.5rem rgba(59, 5, 7, 0.08);
+			}
+
+			.pca-stats div {
+				padding: 2rem 1.5rem;
+				background: #ffffff;
+				text-align: center;
+			}
+
+			.pca-stats strong {
+				display: block;
+				color: var(--pca-red);
+				font-family: "Source Sans Pro", Helvetica, sans-serif;
+				font-size: 2.4rem;
+				font-weight: 900;
+				line-height: 1;
+			}
+
+			.pca-stats span {
+				display: block;
+				margin-top: 0.55rem;
+				color: var(--pca-muted);
+				font-family: "Source Sans Pro", Helvetica, sans-serif;
+				font-size: 0.75rem;
+				font-weight: 900;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+			}
+
+			#main > .pca-band {
+				padding: clamp(4rem, 7vw, 6rem) 4rem;
+				background:
+					linear-gradient(135deg, rgba(59, 5, 7, 0.82), rgba(159, 18, 25, 0.68)),
+					url("used website images/homepage/field-day.jpg");
+				background-position: center;
+				background-size: cover;
+				color: #ffffff;
+				text-align: center;
+			}
+
+			#main > .pca-band .button.primary {
+				background: #ffffff;
+				color: var(--pca-red-mid) !important;
+			}
+
+			#main > .pca-band .button.primary:hover {
+				background: var(--pca-paper);
+			}
+
+			#main .pca-band h2,
+			#main .pca-band p {
+				color: #ffffff;
+			}
+
+			.pca-band p {
+				max-width: 56rem;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			#footer {
+				display: grid;
+				grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+				margin-top: 1rem;
+				overflow: hidden;
+				background: #fff4f1;
+				border: 1px solid var(--pca-line);
+				border-radius: 22px;
+				box-shadow: 0 1.5rem 3.75rem rgba(59, 5, 7, 0.16);
+				color: var(--pca-muted);
+			}
+
+			#footer > section {
+				min-width: 0;
+				padding: 3.25rem;
+				border-left: 0;
+			}
+
+			#footer > section:first-child {
+				border-right: 1px solid var(--pca-line);
+			}
+
+			#footer > section.split {
+				display: grid;
+				padding: 0;
+			}
+
+			#footer > section.split > section,
+			#footer > section.split > section:first-child,
+			#footer > section.split > section:last-child,
+			#footer > section.split.contact > section,
+			#footer > section.split.contact > section:first-child,
+			#footer > section.split.contact > section:last-child {
+				display: grid;
+				grid-template-columns: 9rem minmax(0, 1fr);
+				gap: 1.25rem;
+				align-items: start;
+				padding: 2.25rem 3.25rem;
+				border-top: 1px solid var(--pca-line);
+			}
+
+			#footer > section.split > section:first-child,
+			#footer > section.split.contact > section:first-child {
+				border-top: 0;
+			}
+
+			#footer > section.split.contact > section > :first-child,
+			#footer > section.split.contact > section > :last-child {
+				width: auto;
+				min-width: 0;
+				margin: 0;
+			}
+
+			#footer > section.split.contact > section.alt > :last-child {
+				margin-top: 0;
+			}
+
+			#footer form label,
+			#footer h3 {
+				color: #5d5557;
+				line-height: 1.35;
+			}
+
+			#footer p {
+				color: #6e6062;
+				line-height: 1.8;
+				text-align: left;
+			}
+
+			#footer a {
+				word-break: break-word;
+			}
+
+			#footer input[type="text"],
+			#footer input[type="email"],
+			#footer textarea {
+				background: rgba(255, 255, 255, 0.72);
+				border-color: var(--pca-line);
+			}
+
+			#footer input[type="text"]:focus,
+			#footer input[type="email"]:focus,
+			#footer textarea:focus {
+				border-color: var(--pca-red);
+			}
+
+			#navPanelToggle {
+				background: rgba(255, 248, 246, 0.96);
+				border-radius: 999px;
+				box-shadow: 0 0.75rem 1.8rem rgba(59, 5, 7, 0.18);
+				color: var(--pca-ink);
+			}
+
+			#copyright {
+				color: rgba(255, 255, 255, 0.55);
+			}
+
+			@media screen and (max-width: 980px) {
+				#footer {
+					grid-template-columns: 1fr;
+				}
+
+				#footer > section:first-child {
+					border-right: 0;
+					border-bottom: 1px solid var(--pca-line);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#main {
+					width: calc(100vw - 2rem) !important;
+					max-width: calc(100vw - 2rem) !important;
+				}
+
+				#intro .pca-intro-logo {
+					width: 86px;
+					height: 86px;
+					margin-bottom: 1.5rem;
+				}
+
+				#intro p {
+					width: min(100%, 21rem);
+					font-size: 1rem;
+				}
+
+				#intro p br {
+					display: none;
+				}
+
+				#main > .post header.major > .date:before,
+				#main > .post header.major > .date:after {
+					display: none;
+				}
+
+				#main > .post header.major > .date {
+					max-width: 18rem;
+					margin-right: auto;
+					margin-left: auto;
+					font-size: 0.86rem;
+					line-height: 1.45;
+				}
+
+				#main > .post header.major h2 {
+					font-size: 1.42rem;
+					line-height: 1.15;
+					letter-spacing: 0.04em;
+				}
+
+				#main header.major h2 br,
+				#main > .posts h2 br {
+					display: initial !important;
+				}
+
+				#main > .post.featured {
+					padding-top: 3.5rem;
+				}
+
+				#main > .post,
+				#main > .posts > article {
+					padding-right: 1.25rem !important;
+					padding-left: 1.25rem !important;
+				}
+
+				#header .logo {
+					gap: 0.6rem;
+					padding: 0.45rem 0.85rem;
+				}
+
+				#header .logo img {
+					width: 34px;
+					height: 34px;
+				}
+
+				.pca-stats {
+					grid-template-columns: 1fr;
+				}
+
+				.pca-band {
+					padding: 3rem 1.5rem;
+				}
+
+				#footer > section,
+				#footer > section.split > section,
+				#footer > section.split > section:first-child,
+				#footer > section.split > section:last-child,
+				#footer > section.split.contact > section,
+				#footer > section.split.contact > section:first-child,
+				#footer > section.split.contact > section:last-child {
+					grid-template-columns: 1fr;
+					gap: 0.65rem;
+					padding: 2rem 1.5rem;
+				}
+
+				#footer p {
+					margin-bottom: 0;
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper" class="fade-in">
+
+			<div id="intro">
+				<img class="pca-intro-logo" src="used website images/homepage/pca-logo.png" alt="PCA Youth Center logo" />
+				<h1>PCA Youth<br />
+				Center</h1>
+				<p>Leadership, culture, and community service for Pittsburgh youth.<br />
+				We inspire young people to serve, connect, and care for the community around them.</p>
+				<ul class="actions">
+					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+				</ul>
+			</div>
+
+			<header id="header">
+				<a href="index.html" class="logo"><img src="used website images/homepage/pca-logo.png" alt="" /> PCA Youth Center</a>
+			</header>
+
+			<nav id="nav">
+				<ul class="links">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="#mission">Mission</a></li>
+					<li><a href="#events">Events</a></li>
+					<li><a href="#membership">Membership</a></li>
+					<li><a href="#volunteer">Volunteer</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="mailto:pcayouthcenter@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+
+				<article class="post featured" id="mission">
+					<header class="major">
+						<span class="date">Pittsburgh Chinese American Youth Center</span>
+						<h2><a href="#mission">Welcome to the<br />
+						PCA Youth Center</a></h2>
+						<p>PCA Youth Center is a 501(c)(3) non-profit organization with adult and student volunteers. We educate and inspire leadership traits in youth, promote cultural exchange and opportunities, and encourage youth to care for the community.</p>
+					</header>
+					<a href="#events" class="image main"><img src="used website images/homepage/garden-cleanup.jpg" alt="PCA Youth Center volunteers at a community garden cleanup" /></a>
+					<div class="pca-stats" aria-label="PCA Youth Center highlights">
+						<div>
+							<strong>20+</strong>
+							<span>Events</span>
+						</div>
+						<div>
+							<strong>900+</strong>
+							<span>Participants</span>
+						</div>
+						<div>
+							<strong>2020</strong>
+							<span>Serving Since</span>
+						</div>
+					</div>
+				</article>
+
+				<section class="posts" id="events">
+					<article>
+						<header>
+							<span class="date">Who We Are</span>
+							<h2><a href="#mission">Hands-on<br />
+							learning</a></h2>
+						</header>
+						<a href="#mission" class="image fit"><img src="used website images/homepage/arts-community.jpg" alt="PCA Youth Center students showing spring art projects" /></a>
+						<p>Our workshops and forums help kids explore interests, build independence, and develop leadership through culture, service, STEM, arts, and community programs.</p>
+						<ul class="actions special">
+							<li><a href="#contact" class="button">Connect</a></li>
+						</ul>
+					</article>
+					<article id="volunteer">
+						<header>
+							<span class="date">Volunteer Work</span>
+							<h2><a href="#events">Make a<br />
+							real impact</a></h2>
+						</header>
+						<a href="#events" class="image fit"><img src="used website images/homepage/food-bank-distribution.jpg" alt="PCA Youth Center student volunteers at a food distribution event" /></a>
+						<p>Volunteers help with event setup, tear down, proctoring, community service projects, and local partner efforts. PCA is also a certifying organization for the President's Volunteer Service Award.</p>
+						<ul class="actions special">
+							<li><a href="#contact" class="button">Volunteer</a></li>
+						</ul>
+					</article>
+					<article>
+						<header>
+							<span class="date">Student Council</span>
+							<h2><a href="#events">Youth-led<br />
+							programs</a></h2>
+						</header>
+						<a href="#events" class="image fit"><img src="used website images/homepage/field-day.jpg" alt="Children participating in a PCA Youth Center field day game" /></a>
+						<p>Student Council members plan events about every two months, meet weekly, and work in teams for event planning, public relations, web, blogging, and general management.</p>
+						<ul class="actions special">
+							<li><a href="#contact" class="button">Join Us</a></li>
+						</ul>
+					</article>
+					<article id="membership">
+						<header>
+							<span class="date">Membership</span>
+							<h2><a href="#membership">Greater<br />
+							Pittsburgh families</a></h2>
+						</header>
+						<a href="#membership" class="image fit"><img src="used website images/homepage/aapi-book-drive.jpg" alt="PCA Youth Center AAPI book drive materials" /></a>
+						<p>Membership is open to anyone in the Greater Pittsburgh area. The annual household fee supports PCA events, prizes, and operating costs, with member discounts and priority registration.</p>
+						<ul class="actions special">
+							<li><a href="mailto:pcayouthcenter@gmail.com" class="button primary">Email Us</a></li>
+						</ul>
+					</article>
+				</section>
+
+				<section class="post pca-band" id="involvement">
+					<header class="major">
+						<h2>Get involved with PCA</h2>
+						<p>Past projects include book donations for school and community libraries, meals for people experiencing sickness or homelessness, career forums, mentorship events, planting projects, free art and cultural workshops, and Asian American cultural festivals.</p>
+					</header>
+					<ul class="actions special">
+						<li><a href="#contact" class="button primary">Get Involved</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+			<footer id="footer">
+				<section>
+					<form method="post" action="mailto:pcayouthcenter@gmail.com">
+						<div class="fields">
+							<div class="field">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+							</div>
+							<div class="field">
+								<label for="email">Email</label>
+								<input type="email" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="3"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" /></li>
+						</ul>
+					</form>
+				</section>
+				<section class="split contact" id="contact">
+					<section class="alt">
+						<h3>Organization</h3>
+						<p>PCA Youth Center<br />
+						Pittsburgh Chinese American Youth Center</p>
+					</section>
+					<section>
+						<h3>Email</h3>
+						<p><a href="mailto:pcayouthcenter@gmail.com">pcayouthcenter@gmail.com</a></p>
+					</section>
+					<section>
+						<h3>Nonprofit</h3>
+						<p>501(c)(3) youth organization led by adult and student volunteers.</p>
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
+							<li><a href="mailto:pcayouthcenter@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<div id="copyright">
+				<ul><li>&copy; 2018-2026 PCA Youth Center</li><li>Design adapted from <a href="https://html5up.net">HTML5 UP</a></li></ul>
+			</div>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
