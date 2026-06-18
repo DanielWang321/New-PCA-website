@@ -37,6 +37,20 @@ const revealMainContent = () => {
 const setupScrollReveals = () => {
 	const revealElements = Array.from(document.querySelectorAll(revealSelectors));
 
+	const revealVisibleElements = () => {
+		const revealLine = window.innerHeight * 0.92;
+
+		revealElements.forEach((element) => {
+			if (element.classList.contains("is-visible")) {
+				return;
+			}
+
+			if (element.getBoundingClientRect().top < revealLine) {
+				element.classList.add("is-visible");
+			}
+		});
+	};
+
 	revealElements.forEach((element, index) => {
 		element.classList.add("pca-scroll-reveal");
 		element.style.setProperty("--pca-reveal-delay", `${Math.min(index % 4, 3) * 55}ms`);
@@ -50,19 +64,9 @@ const setupScrollReveals = () => {
 
 		let ticking = false;
 
-		const revealVisibleElements = () => {
+		const revealVisibleElementsOnFrame = () => {
 			ticking = false;
-			const revealLine = window.innerHeight * 0.88;
-
-			revealElements.forEach((element) => {
-				if (element.classList.contains("is-visible")) {
-					return;
-				}
-
-				if (element.getBoundingClientRect().top < revealLine) {
-					element.classList.add("is-visible");
-				}
-			});
+			revealVisibleElements();
 
 			if (revealElements.every((element) => element.classList.contains("is-visible"))) {
 				window.removeEventListener("scroll", queueRevealCheck);
@@ -76,7 +80,7 @@ const setupScrollReveals = () => {
 			}
 
 			ticking = true;
-			window.requestAnimationFrame(revealVisibleElements);
+			window.requestAnimationFrame(revealVisibleElementsOnFrame);
 		};
 
 		window.addEventListener("scroll", queueRevealCheck, { passive: true });
@@ -103,6 +107,12 @@ const setupScrollReveals = () => {
 	);
 
 	revealElements.forEach((element) => observer.observe(element));
+	revealVisibleElements();
+
+	window.setTimeout(revealVisibleElements, 250);
+	window.setTimeout(() => {
+		revealElements.forEach((element) => element.classList.add("is-visible"));
+	}, 1200);
 };
 
 const setupMobileNavPanelState = () => {
@@ -140,7 +150,12 @@ const setupMobileNavPanelState = () => {
 		attributeFilter: ["class"],
 	});
 
-	mobileNavQuery.addEventListener("change", syncNavPanelState);
+	if (typeof mobileNavQuery.addEventListener === "function") {
+		mobileNavQuery.addEventListener("change", syncNavPanelState);
+	} else if (typeof mobileNavQuery.addListener === "function") {
+		mobileNavQuery.addListener(syncNavPanelState);
+	}
+
 	syncNavPanelState();
 };
 
