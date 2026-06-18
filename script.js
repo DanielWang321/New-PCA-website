@@ -105,7 +105,47 @@ const setupScrollReveals = () => {
 	revealElements.forEach((element) => observer.observe(element));
 };
 
+const setupMobileNavPanelState = () => {
+	const navPanel = document.querySelector("#navPanel");
+	const wrapper = document.querySelector("#wrapper");
+	const mobileNavQuery = window.matchMedia("(max-width: 980px)");
+
+	if (!navPanel || !wrapper) {
+		return;
+	}
+
+	const syncNavPanelState = () => {
+		const isVisible = document.body.classList.contains("is-navPanel-visible") && mobileNavQuery.matches;
+
+		if (isVisible) {
+			navPanel.style.setProperty("-webkit-transform", "translateX(0)", "important");
+			navPanel.style.setProperty("-ms-transform", "translateX(0)", "important");
+			navPanel.style.setProperty("transform", "translateX(0)", "important");
+			navPanel.style.setProperty("visibility", "visible", "important");
+			navPanel.style.setProperty("box-shadow", "0 0 1.5rem 0 rgba(0, 0, 0, 0.2)", "important");
+			wrapper.style.setProperty("opacity", "0.5", "important");
+			return;
+		}
+
+		navPanel.style.removeProperty("-webkit-transform");
+		navPanel.style.removeProperty("-ms-transform");
+		navPanel.style.removeProperty("transform");
+		navPanel.style.removeProperty("visibility");
+		navPanel.style.removeProperty("box-shadow");
+		wrapper.style.removeProperty("opacity");
+	};
+
+	new MutationObserver(syncNavPanelState).observe(document.body, {
+		attributes: true,
+		attributeFilter: ["class"],
+	});
+
+	mobileNavQuery.addEventListener("change", syncNavPanelState);
+	syncNavPanelState();
+};
+
 setupScrollReveals();
+setupMobileNavPanelState();
 
 window.addEventListener("pageshow", () => {
 	document.body.classList.remove("pca-page-leaving");
@@ -129,6 +169,7 @@ document.querySelectorAll('a[href]').forEach((link) => {
 		const currentUrl = new URL(window.location.href);
 		const isInternalPage = nextUrl.origin === currentUrl.origin && nextUrl.pathname.endsWith(".html");
 		const isSamePageAnchor = nextUrl.pathname === currentUrl.pathname && nextUrl.hash;
+		const navPanel = link.closest("#navPanel");
 		const isNavTab = Boolean(link.closest("#nav .links, #navPanel"));
 		const isSamePageTab = isNavTab && nextUrl.pathname === currentUrl.pathname && !nextUrl.hash;
 
@@ -136,9 +177,14 @@ document.querySelectorAll('a[href]').forEach((link) => {
 			return;
 		}
 
+		if (navPanel) {
+			event.stopPropagation();
+			document.body.classList.remove("is-navPanel-visible");
+		}
+
 		if (isSamePageTab) {
 			event.preventDefault();
-			revealMainContent();
+			window.setTimeout(revealMainContent, navPanel ? 260 : 0);
 			return;
 		}
 
@@ -151,7 +197,7 @@ document.querySelectorAll('a[href]').forEach((link) => {
 		document.body.classList.add("pca-page-leaving");
 		window.setTimeout(() => {
 			window.location.href = nextUrl.href;
-		}, 180);
+		}, navPanel ? 260 : 180);
 	});
 });
 
